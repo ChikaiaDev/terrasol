@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Terrasol Kenya limited</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <!-- nav -->
+
+    <%- include('../includes/_navbar') %>
+
+    <section class="content">
+      <div class="site-section bg-light">
+        <div class="container">
+          <br />
+          <a href="/jobs" class="navigation">
+            <span><i class="fa fa-arrow-left"></i></span>
+            Go back</a
+          >
+          <br />
+          <hr />
+          <div class="row">
+            <div class="col-md-12 col-lg-8 mb-5">
+              <div class="p-5 bg-white">
+                <div class="mb-4 mb-md-5 mr-5">
+                  <div class="job-post-item-header d-flex align-items-center">
+                    <h2 class="mr-3 text-black h4"><%= job.title %></h2>
+                    <hr />
+                  </div>
+                  <div class="job-post-item-body d-block d-md-flex">
+                    <div>
+                      <span class="fl-bigmug-line-big104"></span>
+                      <span
+                        >Posted At: <%= job.createdAt.toLocaleDateString()
+                        %></span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <p><%= job.description %></p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="p-4 mb-3 bg-white">
+                <h3 class="h5 text-black mb-3">More Info</h3>
+                <p class="text-muted">Location : <%= job.location %></p>
+                <p class="text-muted">Company : <%= job.company %></p>
+                <p class="text-muted">Type : <%= job.type %></p>
+                <a href="/jobs/edit/<%= job.id %>" class="btn btn-info"
+                  >edit Job</a
+                >
+                <form
+                  action="/jobs/<%= job.id %>?_method=DELETE"
+                  method="POST"
+                  class="d-inline"
+                >
+                  <button class="btn btn-danger" type="submit">
+                    Delete job
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <%- include('../includes/_footer') %>
+  </body>
+</html>

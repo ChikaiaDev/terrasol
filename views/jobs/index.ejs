@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Terrasol Kenya limited</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <!-- nav -->
+    <%- include('../includes/_navbar') %>
+    <!-- careers -->
+
+
+
+    <section id="careers">
+        <div class="site-section bg-light" style="  margin-bottom: 50px;">
+            <div class="container">
+                <div class="row justify-content-start text-left mb-5">
+                    <div class="col-md-9" data-aos="fade">
+                        <h2 class="font-weight-bold text-black">Recent Jobs</h2>
+                    </div>
+
+                </div>
+                <a href="/jobs/create" class="btn btn-secondary">Create A NEW JOB</a>
+                <br>
+
+                <% jobs.forEach(job =>{ %>
+
+
+                <div class="row" data-aos="fade" href="">
+                    <div class="col-md-12">
+
+                        <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+                            <div class="mb-4 mb-md-0 mr-5">
+                                <div class="job-post-item-header d-flex align-items-center">
+                                    <h2 class="mr-3 text-black h4"><%= job.title%></h2>
+                                    <div class="badge-wrap">
+                                        <span class="bg-secondary text-white badge py-2 px-4"><%= job.type%></span>
+
+                                    </div>
+                                </div>
+                                <div class="text-muted mb-2"><%= job.createdAt.toLocaleDateString()  %></div>
+                                <div class="job-post-item-body d-block d-md-flex">
+
+
+                                    <div class="mr-3 company-link"><span class="fl-bigmug-line-portfolio23"></span> <a
+                                            href="#"><%= job.company %></a></div>
+                                    <div><span class="fl-bigmug-line-big104"></span> <span>Nairobi, Kenya</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ml-auto">
+                                <a href="/jobs/<%= job.slug %>" class="btn btn-primary py-2">View</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+
+                <% }) %>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </section>
+    <!-- footer -->
+    <%- include('../includes/_footer') %>
+
+
+</body>
+
+</html>
