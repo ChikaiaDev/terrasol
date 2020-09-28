@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 var path = require("path");
 const jobRouter = require("./routes/jobs");
 const adminRouter = require("./routes/admin");
+const contactRouter = require("./routes/contact");
 
 const app = express();
 let port = 5500;
@@ -32,7 +33,9 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+//routes
 app.use("/jobs", jobRouter);
 app.use("/admin", adminRouter);
+app.use("/contactform", contactRouter);
 
 app.listen(port, () => console.log("server running on port 5500"));
