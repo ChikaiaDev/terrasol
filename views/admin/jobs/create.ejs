@@ -19,7 +19,6 @@
 
     <!-- Custom styles for this template-->
     <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style2.css">
 
 </head>
 
@@ -29,7 +28,7 @@
     <div id="wrapper">
 
         <!-- sidebar -->
-        <%- include('./includes/_sidebar') %>
+        <%- include('../includes/_sidebar') %>
         <!-- endofsidebar -->
 
         <!-- Content Wrapper -->
@@ -39,7 +38,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <%- include('./includes/_topbar') %>
+                <%- include('../includes/_topbar') %>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -123,36 +122,20 @@
                         </div>
                     </div>
 
+
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Active Jobs</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Create a new job</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>Date Posted</th>
-                                            <th>Applicants</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% jobs.forEach(job =>{ %>
-                                        <tr>
-                                            <td><%= job.title%></td>
-                                            <td><%= job.createdAt.toLocaleDateString()  %></td>
-                                            <td>3</td>
-                                            <td> <a href="/admin/jobs/<%= job.slug %>"
-                                                    class="btn btn-primary py-2">View</a></td>
-                                        </tr>
-                                        <% }) %>
-                                    </tbody>
-                                </table>
-                            </div>
+
+                            <form action="/jobs" method="POST">
+                                <%- include('_form_fields') %>
+
+                            </form>
                         </div>
                     </div>
+
 
 
                 </div>

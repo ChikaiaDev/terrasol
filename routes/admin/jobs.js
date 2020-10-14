@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-const Job = require("../models/job");
-const { route } = require("./admin/jobs");
-const { syncIndexes } = require("./../models/job");
+const Job = require("../../models/job");
+const { route } = require("../admin/jobs");
+const { syncIndexes } = require("../../models/job");
 
 router.get("/", async (req, res) => {
   const jobs = await Job.find().sort({
     createdAt: "desc",
   });
-  res.render("jobs/index", {
+  res.render("admin/index", {
     jobs: jobs,
   });
 });
@@ -22,9 +22,9 @@ router.get("/create", (req, res) => {
 });
 
 //edit a job
-router.get("/edit/:slug", async (req, res) => {
-  const job = await Job.findById(req.params.slug);
-  res.render("jobs/edit", {
+router.get("/edit/:id", async (req, res) => {
+  const job = await Job.findById(req.params.id);
+  res.render("admin/jobs/show", {
     job: job,
   });
 });
@@ -36,9 +36,10 @@ router.get("/:slug", async (req, res) => {
   });
 
   if (job == null) res.redirect("/");
-  res.render("jobs/show", {
+  res.render("admin/jobs/show", {
     job: job,
   });
+ 
 });
 
 //creating a new job

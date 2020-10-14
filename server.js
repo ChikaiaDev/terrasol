@@ -3,7 +3,8 @@ const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 var path = require("path");
 const jobRouter = require("./routes/jobs");
-const adminRouter = require("./routes/admin");
+const adminJobsRouter = require("./routes/admin/jobs")
+const adminRouter = require("./routes/admin/jobs");
 const contactRouter = require("./routes/contact");
 
 const app = express();
@@ -36,6 +37,7 @@ app.get("/", (req, res) => {
 //routes
 app.use("/jobs", jobRouter);
 app.use("/admin", adminRouter);
+app.use("/admin/jobs",adminJobsRouter);
 app.use("/contactform", contactRouter);
 
 app.listen(port, () => console.log("server running on port 5500"));

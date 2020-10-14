@@ -1,0 +1,16 @@
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: relative;
+    width: 700px;
+    bottom: 0;
+    z-index: 9;
+    left: auto;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 50vw;
+    padding: 10px;
+    background-color: white;
+  }
