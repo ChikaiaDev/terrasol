@@ -21,8 +21,8 @@ router.post('/send', async (req, res) => {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-            user: 'ian.chikaia@gmail.com', // generated ethereal user
-            pass: 'Mseewa#95', // generated ethereal password
+            user: 'markgichure@gmail.com', // generated ethereal user
+            pass: 'boomdocks', // generated ethereal password
         },
         tls: {
             rejectInauthorized: false
@@ -32,7 +32,7 @@ router.post('/send', async (req, res) => {
     // send mail with defined transport object
     let info = await transporter.sendMail({
         from: req.body.email, // sender address
-        to: "ian.chikaia@gmail.com, ian.chikaia@gmail.com", // list of receivers
+        to: "markgichure@gmail.com, markgichure@gmail.com", // list of receivers
         subject: "New  Contact", // Subject line
         text: "Hello world?", // plain text body
         html: output, // html body
