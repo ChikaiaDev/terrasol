@@ -64,7 +64,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Jobs Posted </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">800</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= numJobs%></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -143,7 +143,7 @@
                                         <tr>
                                             <td><%= job.title%></td>
                                             <td><%= job.createdAt.toLocaleDateString()  %></td>
-                                            <td>3</td>
+                                            <td>0</td>
                                             <td> <a href="/admin/jobs/<%= job.slug %>"
                                                     class="btn btn-primary py-2">View</a></td>
                                         </tr>

@@ -7,6 +7,8 @@ const adminJobsRouter = require("./routes/admin/jobs")
 const adminRouter = require("./routes/admin/jobs");
 const contactRouter = require("./routes/contact");
 
+const Job = require("./models/job");
+
 const app = express();
 let port = 5500;
 
@@ -33,10 +35,21 @@ app.use(methodOverride("_method"));
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.get("/admin", async(req,res)=>{
+  const jobs = await Job.find().sort({
+    createdAt: "desc",
+  });
+
+  const numJobs = await Job.count();
+  res.render("admin/index", {
+    jobs: jobs, 
+    numJobs: numJobs
+  });
+})
 
 //routes
 app.use("/jobs", jobRouter);
-app.use("/admin", adminRouter);
+// app.use("/admin", adminRouter);
 app.use("/admin/jobs",adminJobsRouter);
 app.use("/contactform", contactRouter);
 

@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 
 //job creation route
 router.get("/create", (req, res) => {
-  res.render("jobs/create", {
+  res.render("admin/jobs/create", {
     job: new Job(),
   });
 });
